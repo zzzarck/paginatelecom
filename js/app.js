@@ -1,0 +1,955 @@
+/* ══ DATOS EXTENDIDOS ══ */
+const antenas = [
+  {
+    id: 1,
+    title: "Antena Yagi-Uda",
+    subtitle: "Televisión Digital Abierta",
+    tag: "TV Digital", tagClass: "tag-tv",
+    img: "https://lxantenna.com/wp-content/uploads/2025/04/yagi_antennas_a_guide_to_directional_rf_communication-1024x683.webp",
+    desc: "La clásica antena exterior de espinas que se ve en los techos de gran parte de Chile. Estándar universal direccional para captar la señal de TV Digital Abierta (norma ISDB-Tb adoptada en el país).",
+    specs: [
+      {label:"Frecuencia",   value:"UHF (470 – 806 MHz)"},
+      {label:"Ganancia",     value:"10 a 14 dBi"},
+      {label:"Directividad", value:"Alta — apuntar hacia el cerro local (ej: Cerro San Cristóbal en Santiago)"},
+      {label:"Impedancia",   value:"75 Ω"},
+      {label:"Uso común",    value:"Casas en zonas periurbanas o rurales alejadas de la antena emisora"}
+    ],
+    detail: {
+      origen: {
+        titulo: "Origen e Historia",
+        contenido: `<div class="detail-prose">
+          <h4>¿Quién la inventó?</h4>
+          <p>La antena Yagi-Uda fue diseñada en Japón en 1926 por los ingenieros Hidetsugu Yagi y Shintaro Uda, de la Universidad Tohoku. Aunque fue Yagi quien publicó el trabajo en inglés (y por eso lleva su nombre), Uda fue el verdadero cerebro técnico detrás del diseño.</p>
+          <div class="highlight-box">
+            <div class="hb-label">Dato histórico</div>
+            <p>Durante la Segunda Guerra Mundial, los ingenieros aliados encontraron antenas Yagi en equipos de radar japoneses capturados. Esto fue tan sorprendente que creyeron haber descubierto tecnología secreta — sin saber que había sido publicada públicamente desde 1926.</p>
+          </div>
+          <h4>Su llegada a Chile</h4>
+          <div class="chile-timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">1960s–1980s</div>
+              <div class="timeline-text">Las antenas Yagi comenzaron a popularizarse en los techos chilenos para recepción de TV analógica VHF/UHF, especialmente en zonas alejadas de los transmisores.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2009</div>
+              <div class="timeline-text">Chile adopta el estándar japonés-brasileño ISDB-Tb para televisión digital. Las antenas Yagi son retrocompatibles — muchos hogares ya tenían la antena instalada.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2020–2024</div>
+              <div class="timeline-text">Apagón analógico definitivo en la Región Metropolitana y progresivo en regiones. La demanda de Yagi-Uda se dispara en zonas rurales y semiurbanas.</div>
+            </div>
+          </div>
+        </div>`
+      },
+      ensamblado: {
+        titulo: "Ensamblado e Instalación",
+        contenido: `<div class="detail-prose">
+          <h4>¿Cómo funciona el ensamblado?</h4>
+          <p>Una Yagi se compone de tres tipos de elementos metálicos paralelos montados sobre un mástil boom:</p>
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-card-icon">📡</span>
+              <h4>Dipolo activo</h4>
+              <p>El único elemento conectado al cable coaxial. Tiene una longitud de λ/2 (media longitud de onda). Es el que realmente recibe la señal.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🔙</span>
+              <h4>Reflector</h4>
+              <p>Un elemento más largo que el dipolo, ubicado detrás. Actúa como espejo que redirige la señal hacia adelante, mejorando la ganancia direccional.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">➡️</span>
+              <h4>Directores</h4>
+              <p>Elementos más cortos que el dipolo, ubicados frente a él. Cuantos más directores, mayor ganancia — pero más angosto el haz de recepción.</p>
+            </div>
+          </div>
+          <h4>Instalación en Chile: paso a paso</h4>
+          <ul>
+            <li>Montar en mástil galvanizado de 1.5" mínimo, a 2 m sobre el techo (evita reflexiones)</li>
+            <li>Orientar hacia el cerro transmisor más cercano (en Santiago: Cerro San Cristóbal o Cerro Renca)</li>
+            <li>Usar cable coaxial RG-6 (75Ω) con conector F para TV digital ISDB-Tb</li>
+            <li>Sellar todas las conexiones externas con tape autovulcanizante (la humedad es el mayor enemigo)</li>
+            <li>Puesta a tierra obligatoria según normativa SEC chilena</li>
+          </ul>
+          <div class="highlight-box">
+            <div class="hb-label">Consejo para zonas difíciles</div>
+            <p>En lugares con señal débil (más de 60 km del transmisor), agregar un amplificador de mástil LNA (Low Noise Amplifier) directamente en la antena — no en el interior — para amplificar antes de que el cable atenúe la señal.</p>
+          </div>
+        </div>`
+      },
+      chile: {
+        titulo: "Uso en Chile",
+        contenido: `<div class="detail-prose">
+          <h4>¿Dónde más se usa en Chile?</h4>
+          <p>Más allá de la TV, las antenas Yagi son herramienta clave en varios sectores del país:</p>
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-card-icon">⛏️</span>
+              <h4>Minería</h4>
+              <p>Comunicaciones de radio VHF entre minas y campamentos en el norte desértico, donde la topografía exige antenas altamente directivas.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🚒</span>
+              <h4>Bomberos y Emergencias</h4>
+              <p>Repetidoras de bomberos instalan Yagi para extender la cobertura de sus redes de comunicación VHF en zonas serranas.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🌊</span>
+              <h4>Pesca artesanal</h4>
+              <p>Caletas pesqueras en el litoral usan versiones marinas de Yagi para comunicación VHF con capitanías de puerto.</p>
+            </div>
+          </div>
+          <h4>Marcas disponibles en Chile</h4>
+          <p>En tiendas electrónicas y ferreterías nacionales se encuentran principalmente:</p>
+          <ul>
+            <li><strong>Antixter / Wisi</strong> — Las más comunes en supermercados y tiendas de retail</li>
+            <li><strong>Channel Master</strong> — Gama media, buena calidad de construcción</li>
+            <li><strong>Fracarro (Italia)</strong> — Premium, aluminio extruído, muy usado por instaladores profesionales</li>
+            <li><strong>Genéricas chinas</strong> — Económicas pero con mayor tasa de corrosión en zonas costeras</li>
+          </ul>
+        </div>`
+      }
+    }
+  },
+  {
+    id: 2,
+    title: "Starlink Gen 3 / Mini",
+    subtitle: "Internet satelital LEO",
+    tag: "Satélite", tagClass: "tag-sat",
+    img: "https://s2-techtudo.glbimg.com/xp-I0UYoWiza2-_T0-p3PQJr3so=/0x0:1661x1009/640x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2024/D/e/fUyoCTRN27PRHdhlKsmg/screenshot-2024-10-03-092533.png",
+    desc: "El modelo más popular en Chile para conectividad rural. Panel rectangular de fase electrónica que opera con constelaciones de satélites en órbita baja (LEO). Pasó de los modelos circulares motorizados a paneles fijos de seguimiento electrónico.",
+    specs: [
+      {label:"Frecuencia",       value:"Banda Ku (10.7 – 14.5 GHz) y Banda Ka"},
+      {label:"Campo de visión",  value:"~100° a 110°"},
+      {label:"Orientación",      value:"Escaneo electrónico automático (Phased Array)"},
+      {label:"Velocidad típica", value:"100 – 250 Mbps bajada"},
+      {label:"Uso común",        value:"Sur de Chile, cordillera, parcelas y zonas sin fibra óptica"}
+    ],
+    detail: {
+      origen: {
+        titulo: "Origen y Tecnología",
+        contenido: `<div class="detail-prose">
+          <h4>¿Cómo llegó Starlink a Chile?</h4>
+          <p>SpaceX obtuvo la autorización de la Subsecretaría de Telecomunicaciones (Subtel) de Chile en 2021, convirtiéndose en uno de los primeros países de Latinoamérica en aprobar el servicio. La demanda fue inmediata y masiva, especialmente en el sur del país.</p>
+          <div class="highlight-box">
+            <div class="hb-label">¿Por qué LEO cambia todo?</div>
+            <p>Los satélites tradicionales (GEO) orbitan a 35.786 km de altitud, causando latencias de 600–700 ms. Los de Starlink vuelan a solo 550 km, reduciendo la latencia a 20–50 ms — comparable a una conexión terrestre de cable.</p>
+          </div>
+          <h4>Evolución de los modelos disponibles en Chile</h4>
+          <div class="chile-timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">2021 — Gen 1 Circular</div>
+              <div class="timeline-text">Primer modelo motorizado con forma de plato circular. Motor interno para orientarse automáticamente. Consumía 65–100W.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2022 — Gen 2 Rectangular</div>
+              <div class="timeline-text">Panel plano sin motor. Orientación mediante phased array electrónico. Más delgado, más fácil de instalar en techos. Consumo: 50–75W.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2023 — Starlink Mini</div>
+              <div class="timeline-text">Versión portátil de 29×25 cm. Pesa solo 1.1 kg. Pensado para movilidad — funciona en camionetas, lanchas y camping. Muy popular en Chile para turismo extremo.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2024 — Gen 3</div>
+              <div class="timeline-text">Mayor ganancia de antena, soporte a satélites v2 Mini con laser crosslinks. Mejora notable en zonas con cielo parcialmente obstaculizado.</div>
+            </div>
+          </div>
+        </div>`
+      },
+      ensamblado: {
+        titulo: "Instalación y Configuración",
+        contenido: `<div class="detail-prose">
+          <h4>El sistema completo incluye</h4>
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-card-icon">📡</span>
+              <h4>Dishy (el plato)</h4>
+              <p>El terminal con miles de elementos de antena en fase que escanean el cielo electrónicamente. No hay partes móviles en Gen 2+.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">📦</span>
+              <h4>Router WiFi 6</h4>
+              <p>Router inalámbrico incluido con soporte WiFi 6 (802.11ax). Puede conectarse en modo bypass para usar tu propio router.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🔌</span>
+              <h4>Cable PoE</h4>
+              <p>Un solo cable de 25 m lleva datos y alimentación eléctrica al plato. No se puede cortar ni empalmar (garantía void).</p>
+            </div>
+          </div>
+          <h4>Requisitos de instalación en Chile</h4>
+          <ul>
+            <li><strong>Cielo despejado:</strong> La app "Check for Obstructions" de Starlink es obligatoria antes de instalar</li>
+            <li><strong>Orientación:</strong> El plato se auto-orienta, pero necesita visión al norte celeste (satélites pasan por encima)</li>
+            <li><strong>Altura mínima:</strong> Instalar por sobre la línea de árboles o techos circundantes</li>
+            <li><strong>En zonas con nieve:</strong> El plato tiene calefactor integrado (activo solo cuando detecta acumulación)</li>
+            <li><strong>Internet móvil:</strong> El plan "Roam" permite usarlo en movimiento, popular en rutas patagónicas</li>
+          </ul>
+          <div class="highlight-box">
+            <div class="hb-label">Tip para zonas rurales del sur</div>
+            <p>En la Región de Los Lagos y Aysén, donde la lluvia es frecuente, el plato resiste perfectamente. El mayor desafío es la acumulación de hojas sobre el plato en zonas boscosas — se recomienda instalar en alto con rejilla protectora.</p>
+          </div>
+        </div>`
+      },
+      chile: {
+        titulo: "Impacto en Chile",
+        contenido: `<div class="detail-prose">
+          <h4>Transformando la conectividad rural chilena</h4>
+          <p>Starlink ha sido revolucionario en zonas donde el Estado no ha podido llevar fibra óptica ni 4G. Su impacto más profundo se ve en:</p>
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-card-icon">🌿</span>
+              <h4>Agricultura y campo</h4>
+              <p>Agricultores en zonas cordilleranas de la zona central pueden ahora monitorear sistemas de riego, acceder a mercados digitales y comunicarse desde sus parcelas.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🏥</span>
+              <h4>Telemedicina</h4>
+              <p>Postas rurales y consultorios en localidades aisladas de Chiloé, Palena y Magallanes usan Starlink para videoconsultas con especialistas en Santiago.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🚤</span>
+              <h4>Navegación y pesca</h4>
+              <p>El plan Starlink Maritime y el Mini son usados en embarcaciones que operan en canales patagónicos donde no hay cobertura celular de ningún tipo.</p>
+            </div>
+          </div>
+          <h4>Costo en Chile (referencia 2024)</h4>
+          <ul>
+            <li><strong>Hardware Gen 2:</strong> ~$200 USD (precio SpaceX, varía según cambio)</li>
+            <li><strong>Plan residencial:</strong> ~$60 USD/mes</li>
+            <li><strong>Starlink Mini:</strong> ~$300 USD equipo + plan Roam desde $150 USD/mes</li>
+            <li>Disponible en MercadoLibre y tiendas autorizadas, a veces con markup</li>
+          </ul>
+        </div>`
+      }
+    }
+  },
+  {
+    id: 3,
+    title: "Panel Sectorial 4G / 5G",
+    subtitle: "Estaciones base móviles",
+    tag: "Telefonía móvil", tagClass: "tag-cell",
+    img: "https://img.freepik.com/fotos-premium/torre-telecomunicaciones-4g-5g-celular-transmisor-antena-comunicacion-inalambrica-torre-telecomunicaciones-antenas-estacion-base-macro_782515-1518.jpg?w=2000",
+    desc: "Paneles rectangulares verticales instalados en torres monopolo en ciudades y carreteras de Chile (Entel, WOM, Movistar, Claro). Incorporan tecnología Massive MIMO para conectar miles de dispositivos simultáneamente.",
+    specs: [
+      {label:"Frecuencia",  value:"700 MHz, 1.7 GHz, 2.6 GHz, 3.5 GHz (5G), 26 GHz mmWave"},
+      {label:"Cobertura",   value:"65°, 90° o 120° por panel"},
+      {label:"Tecnología",  value:"Massive MIMO (múltiple entrada, múltiple salida)"},
+      {label:"Ganancia",    value:"15 a 25 dBi según modelo"},
+      {label:"Uso común",   value:"Estaciones base de telefonía móvil urbanas e industriales"}
+    ],
+    detail: {
+      origen: {
+        titulo: "Tecnología y Evolución",
+        contenido: `<div class="detail-prose">
+          <h4>De la voz al Massive MIMO</h4>
+          <p>Los primeros paneles sectoriales en Chile eran antenas pasivas simples de una sola banda. Con el paso de las generaciones (2G → 3G → 4G → 5G), se fueron incorporando más frecuencias y tecnologías en el mismo panel físico.</p>
+          <div class="highlight-box">
+            <div class="hb-label">¿Qué es Massive MIMO?</div>
+            <p>Massive MIMO (Multiple Input Multiple Output) significa que el panel contiene decenas o cientos de antenas individuales activas. En lugar de emitir una señal "hacia todos", puede formar haces precisos hacia cada teléfono individual — como si fuera un reflector de luz dirigido. Esto multiplica la capacidad sin usar más frecuencias.</p>
+          </div>
+          <h4>Historia en Chile</h4>
+          <div class="chile-timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">2000s — 2G/3G</div>
+              <div class="timeline-text">Torres monopolo con paneles simples de 850 MHz y 1.9 GHz. La mayoría de los techos planos de Chile comenzaron a albergar estas estructuras.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2013–2018 — 4G LTE</div>
+              <div class="timeline-text">Entel fue pionero con 4G LTE en 700 MHz (banda "rural" ideal para atravesar paredes y llegar lejos). Luego Movistar y Claro desplegaron masivamente.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2021–presente — 5G</div>
+              <div class="timeline-text">Subtel licitó la banda de 3.5 GHz. Entel, WOM y Movistar comenzaron despliegues 5G en Santiago, Valparaíso y Concepción. Los nuevos paneles 5G NR son más grandes y pesados — Massive MIMO 64T64R.</div>
+            </div>
+          </div>
+        </div>`
+      },
+      ensamblado: {
+        titulo: "Estructura e Instalación",
+        contenido: `<div class="detail-prose">
+          <h4>Anatomía de una estación base</h4>
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-card-icon">📶</span>
+              <h4>RRU (Radio Remote Unit)</h4>
+              <p>El cerebro de la antena. Convierte señal digital a RF y viceversa. En 5G suele estar integrado directamente al panel (activo).</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🗼</span>
+              <h4>Torre monopolo</h4>
+              <p>En Chile predominan torres de 25–40 m de altura. También se usan techos de edificios (rooftop sites) especialmente en zonas densas de Santiago.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">⚡</span>
+              <h4>BBU (Baseband Unit)</h4>
+              <p>El procesador central, normalmente en un gabinete al pie de la torre. Conecta la antena con la red de transporte (fibra óptica hacia la core network).</p>
+            </div>
+          </div>
+          <h4>El proceso de instalación en Chile</h4>
+          <ul>
+            <li>Las operadoras deben obtener permiso municipal (muy criticado por sus demoras)</li>
+            <li>La Subtel establece límites de radiación de 41 V/m para Chile, más estricto que la recomendación de la OMS</li>
+            <li>Los paneles se orientan cuidadosamente: tres paneles de 120° cada uno cubren los 360°</li>
+            <li>Tilt mecánico o eléctrico para ajustar el ángulo vertical y no "desperdiciar" señal hacia el cielo</li>
+          </ul>
+        </div>`
+      },
+      chile: {
+        titulo: "Red Móvil en Chile",
+        contenido: `<div class="detail-prose">
+          <h4>El ecosistema de operadores</h4>
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-card-icon">🥇</span>
+              <h4>Entel</h4>
+              <p>Cobertura más amplia en zonas rurales. Pionero en 4G y 5G. Fuerte presencia en Atacama y sur de Chile. Usan paneles Ericsson principalmente.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🔵</span>
+              <h4>Movistar (Telefónica)</h4>
+              <p>Histórico en Chile desde la época de CTC. Infraestructura compartida con WOM en algunas zonas. Huawei y Nokia como proveedores de antenas.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🟣</span>
+              <h4>WOM</h4>
+              <p>El más agresivo en precio. Llegó en 2015. Comparte infraestructura de torre con Movistar en zonas rurales (national roaming).</p>
+            </div>
+          </div>
+          <h4>El problema de las "zonas blancas"</h4>
+          <p>Según Subtel, más del 3% de la población chilena aún no tiene acceso a ninguna red móvil. Las zonas más afectadas son localidades entre Chiloé y la Patagonia, sectores de la cordillera andina y algunas comunidades indígenas del sur.</p>
+          <div class="highlight-box">
+            <div class="hb-label">Proyecto Fibra Óptica Austral</div>
+            <p>El Estado chileno ha financiado el tendido de fibra óptica desde Chiloé hasta Puerto Montt y más al sur para sustentar el backhaul de nuevas estaciones base en zonas donde no era rentable para las operadoras privadas.</p>
+          </div>
+        </div>`
+      }
+    }
+  },
+  {
+    id: 4,
+    title: "Nagoya NA-771 / Baofeng",
+    subtitle: "Radio portátil VHF/UHF",
+    tag: "Radiocomunicación", tagClass: "tag-radio",
+    img: "https://baofengstore.mx/841-large_default/antena-diamond-rh-771.jpg",
+    desc: "Antenas omnidireccionales flexibles ultra populares en Chile para radiocomunicación portátil. Utilizadas masivamente por bomberos, personal de seguridad, faenas mineras y radioaficionados en todo el territorio.",
+    specs: [
+      {label:"Modelos",    value:"Nagoya NA-771, UT-106, antenas Baofeng originales"},
+      {label:"Frecuencia", value:"Dual banda: VHF 136–174 MHz / UHF 400–470 MHz"},
+      {label:"Patrón",     value:"Omnidireccional 360°"},
+      {label:"Conector",   value:"SMA hembra (estándar Baofeng) o SMA macho"},
+      {label:"Uso común",  value:"Radios portátiles en emergencias, logística y minería"}
+    ],
+    detail: {
+      origen: {
+        titulo: "Historia y Origen",
+        contenido: `<div class="detail-prose">
+          <h4>La radio portátil democratizada</h4>
+          <p>Baofeng es una empresa china fundada en 2001 en Fujian. Sus radios, especialmente la UV-5R lanzada en 2012, revolucionaron el mercado mundial al ofrecer radios dual-banda VHF/UHF por menos de $30 USD. La Nagoya NA-771 es la antena de reemplazo más popular para estas radios.</p>
+          <div class="highlight-box">
+            <div class="hb-label">¿Por qué la antena de stock no sirve?</div>
+            <p>La antena que viene incluida en los Baofeng está optimizada para compacidad, no para rendimiento. La NA-771 tiene 40 cm de largo (vs 15 cm de la original) y puede mejorar el alcance hasta un 30–40% por su mayor longitud eléctrica.</p>
+          </div>
+          <h4>La comunidad de radioaficionados en Chile</h4>
+          <div class="chile-timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">1923</div>
+              <div class="timeline-text">Se funda la primera asociación de radioaficionados de Chile. Las licencias de radioaficionado siguen siendo otorgadas por la Subtel hasta hoy.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2010 — Terremoto 27F</div>
+              <div class="timeline-text">Los radioaficionados chilenos (Red de Emergencia Nacional, RECAN) fueron cruciales para comunicaciones de emergencia cuando las redes celulares colapsaron. Se disparó el interés por las radios portátiles.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2012–hoy</div>
+              <div class="timeline-text">La llegada de los Baofeng baratos masifica el acceso. Millones de unidades entran al país a través de importadoras y MercadoLibre.</div>
+            </div>
+          </div>
+        </div>`
+      },
+      ensamblado: {
+        titulo: "Antenas y Conectores",
+        contenido: `<div class="detail-prose">
+          <h4>Tipos de conectores (evita el error más común)</h4>
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-card-icon">🔌</span>
+              <h4>SMA Hembra (en la radio)</h4>
+              <p>El Baofeng UV-5R tiene conector SMA Hembra en el cuerpo (pin hacia afuera). La antena NA-771 tiene SMA Macho. Es lo contrario a la convención — fuente de confusión frecuente al comprar.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">📏</span>
+              <h4>¿Por qué 40 cm?</h4>
+              <p>La longitud de λ/4 para VHF 144 MHz es ~48 cm. Para UHF 430 MHz es ~17 cm. La NA-771 es un compromiso de banda dual que funciona razonablemente en ambas.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🔧</span>
+              <h4>Opciones de mejora</h4>
+              <p>Para uso fijo o en vehículo, una antena de vidrio o una Diamond (japonesa) con cable y conector PL-259 supera con creces a la portátil. Requiere adaptador SO-239 a SMA.</p>
+            </div>
+          </div>
+          <h4>Cómo distinguir una NA-771 original de una copia</h4>
+          <ul>
+            <li>Las originales tienen un núcleo metálico rígido visible si doblas la antena — las copias son pura goma</li>
+            <li>El conector SMA original tiene rosca más fina y precisa que las copias</li>
+            <li>Peso: la original pesa ~30g, las copias más ligeras (~20g) indican menos material conductor</li>
+            <li>Precio: si cuesta menos de $5 USD en Chile, probablemente es copia</li>
+          </ul>
+        </div>`
+      },
+      chile: {
+        titulo: "Usos en Chile",
+        contenido: `<div class="detail-prose">
+          <h4>Quién las usa en Chile</h4>
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-card-icon">🚒</span>
+              <h4>Bomberos de Chile</h4>
+              <p>Institución voluntaria con más de 40,000 voluntarios usa VHF para coordinación. Muchas compañías usan Baofeng como radio de respaldo o entrenamiento.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">⛷️</span>
+              <h4>Deportes de montaña</h4>
+              <p>Escaladores en los Andes usan canales CTCSS acordados (p.ej. CH1 VHF 155.340 MHz) para coordinación en sectores sin cobertura celular.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🏗️</span>
+              <h4>Construcción y eventos</h4>
+              <p>Las obras de construcción en Chile las adoptan masivamente. Son 10x más baratas que los equipos de marca (Motorola, Kenwood) con funcionalidad similar para uso intensivo.</p>
+            </div>
+          </div>
+          <h4>Marco legal en Chile</h4>
+          <p>En Chile, operar un radio transmisor requiere licencia de la Subtel. Sin embargo:</p>
+          <ul>
+            <li>El canal 16 VHF marino (156.800 MHz) es libre para emergencias</li>
+            <li>Los PMR446 (446 MHz, baja potencia) no requieren licencia en muchos países, pero en Chile sí requieren autorización</li>
+            <li>Las faenas mineras y forestales operan bajo concesiones de frecuencia propias</li>
+            <li>Radioaficionados necesitan rendir examen técnico y obtener indicativo de llamada (ej: CE3XYZ)</li>
+          </ul>
+        </div>`
+      }
+    }
+  },
+  {
+    id: 5,
+    title: "MikroTik Disc 5",
+    subtitle: "CPE direccional punto-multipunto 5 GHz",
+    tag: "WiFi / WISP", tagClass: "tag-wifi",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaV9oKk-xpos8XN73LalCqcul9g8sku2MsHmaDAJz6AQ&s=10",
+    desc: "Antena CPE de diseño compacto en forma de disco de MikroTik. Ampliamente utilizada en Chile por proveedores WISP para conectar clientes finales a redes inalámbricas de 5 GHz, gracias a su alta ganancia, robustez mecánica y precio competitivo.",
+    specs: [
+      {label:"Frecuencia",       value:"5 GHz (5.15 – 5.875 GHz), 802.11a/n"},
+      {label:"Ganancia",         value:"17 dBi"},
+      {label:"Ángulo apertura",  value:"~20° horizontal / 20° vertical"},
+      {label:"Potencia TX máx.", value:"26 dBm"},
+      {label:"Procesador",       value:"AR9342 560 MHz, 64 MB RAM, 16 MB Flash"},
+      {label:"Uso común",        value:"CPE cliente WISP, enlace punto-multipunto, distribución rural"}
+    ],
+    detail: {
+      origen: {
+        titulo: "MikroTik Disc 5 y los WISP chilenos",
+        contenido: `<div class="detail-prose">
+          <h4>La empresa detrás del hardware</h4>
+          <p>MikroTik es una empresa letona fundada en 1996, reconocida mundialmente por ofrecer equipos de red profesionales a precios muy accesibles. Su sistema operativo RouterOS es uno de los más poderosos del mercado y se utiliza desde redes domésticas hasta ISPs de mediana escala.</p>
+          <div class="highlight-box">
+            <div class="hb-label">¿Qué es el MikroTik Disc 5?</div>
+            <p>El Disc 5 (modelo RBDisc5nD) es una unidad CPE todo-en-uno con antena integrada en forma de disco de 17 dBi. A diferencia del LiteAP (que actúa como punto de acceso sectorial), el Disc 5 está diseñado para instalarse en el lado del <strong>cliente</strong>, apuntando hacia la torre del WISP. Su ángulo estrecho de 20° lo hace ideal para recibir señal desde distancias de 3 a 15 km.</p>
+          </div>
+          <h4>Por qué MikroTik domina el ecosistema WISP chileno</h4>
+          <div class="chile-timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">2005–2010</div>
+              <div class="timeline-text">Los primeros WISPs chilenos comienzan a operar con antenas omnidireccionales y radios básicas. MikroTik empieza a aparecer en importadoras nacionales gracias a su precio y RouterOS.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2012–2018</div>
+              <div class="timeline-text">El Disc 5 y la línea SXT se consolidan como CPE estándar en cientos de redes WISP a lo largo de Chile, desde Atacama hasta La Araucanía.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2019–hoy</div>
+              <div class="timeline-text">Starlink presiona a los WISPs, pero el bajo costo del Disc 5 (~$40 USD) frente a los $300+ USD de un terminal Starlink mantiene su vigencia en redes de distribución local.</div>
+            </div>
+          </div>
+        </div>`
+      },
+      ensamblado: {
+        titulo: "Instalación y Configuración",
+        contenido: `<div class="detail-prose">
+          <h4>El modelo de red: cómo encaja el Disc 5</h4>
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-card-icon">🏔️</span>
+              <h4>Punto de distribución (AP)</h4>
+              <p>En el cerro o torre, el WISP instala paneles sectoriales MikroTik LiteAP o Ubiquiti que cubren 90° o 120°. Cuatro paneles bastan para los 360°.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🏠</span>
+              <h4>Disc 5 en el cliente (CPE)</h4>
+              <p>Se instala en el techo del cliente con el disco apuntando hacia la torre. Su ángulo de 20° concentra la señal y rechaza interferencias de los lados, mejorando la relación señal-ruido.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">⚡</span>
+              <h4>Alimentación PoE</h4>
+              <p>Se alimenta por el mismo cable Ethernet mediante el inyector PoE pasivo incluido. Sin cableado eléctrico adicional — ideal para techos y postes rurales.</p>
+            </div>
+          </div>
+          <h4>Configuración típica en RouterOS</h4>
+          <ul>
+            <li><strong>Modo Station Bridge:</strong> El Disc 5 en el cliente se configura en modo estación para asociarse al AP sectorial del WISP</li>
+            <li><strong>Nv2 Protocol:</strong> Protocolo propietario de MikroTik que mejora la eficiencia frente al 802.11 estándar en redes punto-multipunto con decenas de clientes</li>
+            <li><strong>Alineación con Winbox:</strong> La herramienta Winbox de MikroTik muestra el nivel de señal (dBm) en tiempo real para orientar el disco correctamente al instalar</li>
+            <li><strong>DFS (Dynamic Frequency Selection):</strong> Obligatorio en Chile para los canales 5 GHz que puedan interferir con radares meteorológicos de la DGAC</li>
+            <li><strong>RSSI objetivo:</strong> Para rendimiento óptimo, apuntar a −65 dBm o mejor al momento de la instalación</li>
+          </ul>
+          <div class="highlight-box">
+            <div class="hb-label">Montaje mecánico</div>
+            <p>El Disc 5 incluye soporte de poste ajustable en ángulo vertical. En Chile se recomienda usar tape autovulcanizante en la entrada de cable y aplicar grasa dieléctrica en el conector PoE para proteger contra la humedad, especialmente en zonas lluviosas del sur.</p>
+          </div>
+        </div>`
+      },
+      chile: {
+        titulo: "Ecosistema WISP en Chile",
+        contenido: `<div class="detail-prose">
+          <h4>Un sector invisible pero vital</h4>
+          <p>Los WISPs locales chilenos conectan a comunidades que el Estado y las grandes telecos han ignorado. Operados por técnicos locales — muchas veces autodidactas — con equipos MikroTik y Ubiquiti como estándar, el Disc 5 es una pieza central de esta infraestructura paralela.</p>
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-card-icon">📍</span>
+              <h4>Concentración geográfica</h4>
+              <p>La mayor densidad de WISPs con Disc 5 se concentra en las Regiones del Maule, Biobío, La Araucanía y Los Lagos — zonas con gran extensión rural y cobertura móvil insuficiente.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">💡</span>
+              <h4>Comunidades técnicas</h4>
+              <p>Grupos de WhatsApp y foros chilenos de MikroTik reúnen a miles de técnicos WISP que comparten configuraciones de Disc 5, topologías de red y resolución de problemas en terreno.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">⚖️</span>
+              <h4>Regulación Subtel</h4>
+              <p>Los WISPs necesitan concesión de ISP y deben operar en frecuencias de uso libre (ISM 5 GHz) o concesionadas. La Subtel ha simplificado trámites, pero los plazos siguen siendo un desafío para operadores pequeños.</p>
+            </div>
+          </div>
+          <h4>Comparativa de precio en Chile (referencia 2024)</h4>
+          <ul>
+            <li><strong>MikroTik Disc 5:</strong> ~$35–50 USD en tiendas nacionales (WiD, Linkstore, etc.)</li>
+            <li><strong>Ubiquiti LiteBeam AC:</strong> ~$80–100 USD — mayor rendimiento pero mayor costo</li>
+            <li><strong>Starlink terminal:</strong> ~$300–400 USD — la alternativa satelital que presiona al mercado WISP</li>
+          </ul>
+          <div class="highlight-box">
+            <div class="hb-label">¿Tiene futuro el Disc 5?</div>
+            <p>El Disc 5 opera en 802.11n (WiFi 4), lo que limita su throughput máximo. Para redes modernas, MikroTik ofrece el SXT ac y el LHG 5ac como evoluciones. Sin embargo, el Disc 5 sigue siendo relevante por su bajo costo y la enorme base instalada en todo Chile que aún da servicio confiable.</p>
+          </div>
+        </div>`
+      }
+    }
+  },
+  {
+    id: 6,
+    title: "Ubiquiti LiteBeam 5AC",
+    subtitle: "Enlace punto a punto 5 GHz",
+    tag: "WiFi / WISP", tagClass: "tag-wifi",
+    img: "https://www.farosolucionesintegrales.com/wp-content/uploads/2021/05/LBE-M5-23.png",
+    desc: "Antena CPE direccional de alto rendimiento de Ubiquiti. Muy popular en Chile para enlaces punto a punto de larga distancia entre cerros, parcelas y localidades rurales.",
+    specs: [
+      {label:"Frecuencia",      value:"5 GHz (5.15 – 5.875 GHz), 802.11ac"},
+      {label:"Ganancia",        value:"23 dBi"},
+      {label:"Ángulo apertura", value:"10° (alta directividad)"},
+      {label:"Throughput real", value:"Hasta 450 Mbps"},
+      {label:"Alcance típico",  value:"15 – 30 km en condiciones óptimas (LOS)"},
+      {label:"Uso común",       value:"Backhaul WISP, enlaces rurales de larga distancia"}
+    ],
+    detail: {
+      origen: {
+        titulo: "Ubiquiti y el diseño del LiteBeam",
+        contenido: `<div class="detail-prose">
+          <h4>Ubiquiti Networks: democratizando el networking</h4>
+          <p>Ubiquiti fue fundada en 2005 en San José, California, por Robert Pera (ex ingeniero de Apple). Su filosofía: hardware de calidad profesional a precio de consumidor. Los WISPs del mundo entero adoptaron sus productos masivamente.</p>
+          <div class="highlight-box">
+            <div class="hb-label">La magia del 23 dBi</div>
+            <p>Una ganancia de 23 dBi significa que la antena concentra la señal con una potencia equivalente a 200 veces la de una antena omnidireccional básica de 0 dBi. Eso permite alcanzar 20–30 km con niveles de señal utilizables — imposible con cualquier otro tipo de antena WiFi.</p>
+          </div>
+          <h4>Evolución del LiteBeam</h4>
+          <div class="chile-timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">NanoBeam M5</div>
+              <div class="timeline-text">El antecesor. Diseño de plato parabólico, 802.11n. Aún se encuentra en redes chilenas instaladas hace 8–10 años, sorprendentemente robusto.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">LiteBeam 5AC (LBE-5AC-23)</div>
+              <div class="timeline-text">El modelo más instalado en Chile. Diseño de guía de onda en lugar de reflector parabólico. Más compacto y ligero. 802.11ac con MIMO 2x2.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">LiteBeam 5AC Gen 2</div>
+              <div class="timeline-text">Mejora el procesador y el software airOS. Mejor rendimiento en condiciones de interferencia — crítico en 2024 donde el espectro 5 GHz está muy congestionado.</div>
+            </div>
+          </div>
+        </div>`
+      },
+      ensamblado: {
+        titulo: "Instalación de un Enlace PtP",
+        contenido: `<div class="detail-prose">
+          <h4>El proceso de alineación — la parte más crítica</h4>
+          <p>Con 10° de ancho de haz, la alineación del LiteBeam es milimétrica. Un error de 1° a 20 km de distancia desplaza el haz 350 metros. El proceso:</p>
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-card-icon">🗺️</span>
+              <h4>Cálculo previo</h4>
+              <p>Se usa LinkCalc o RadioMobile para calcular línea de vista, Zona de Fresnel y pérdida de trayecto. Google Earth Pro permite verificar obstrucciones.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">📱</span>
+              <h4>Alineación con app</h4>
+              <p>La app airControl o el tono de alineación integrado en el LiteBeam ayuda al técnico en terreno a maximizar la señal recibida (RSSI objetivo: -65 dBm o mejor).</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🌡️</span>
+              <h4>Sello y protección</h4>
+              <p>En Chile, el clima varía extremadamente. Todos los conectores RJ-45 exteriores deben protegerse con tape autovulcanizante y housing impermeabilizado.</p>
+            </div>
+          </div>
+          <h4>Zona de Fresnel: lo que nadie te explica</h4>
+          <p>No basta con tener línea de vista visual entre dos puntos. La señal de radio necesita una zona elipsoidal libre de obstáculos (Zona de Fresnel). Para un enlace de 20 km a 5 GHz, la zona 1 de Fresnel tiene un radio de ~12 metros en el punto medio. Un árbol que "apenas toca" el haz puede degradar el enlace 10 dB.</p>
+          <div class="highlight-box">
+            <div class="hb-label">Regla práctica chilena</div>
+            <p>Los técnicos WISP chilenos dicen: "Si puedes ver el otro punto con binoculares y no hay nada entre los dos, probablemente funciona." Es una simplificación brutal pero sorprendentemente efectiva para enlaces bajo 15 km.</p>
+          </div>
+        </div>`
+      },
+      chile: {
+        titulo: "Casos de Uso en Chile",
+        contenido: `<div class="detail-prose">
+          <h4>Donde el LiteBeam brilla en Chile</h4>
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-card-icon">🏔️</span>
+              <h4>Backhaul cordillerano</h4>
+              <p>Conectar un pueblo aislado en la precordillera con la red troncal de un ISP en el valle. Distancias de 15–25 km son habituales en las regiones centrales.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🍇</span>
+              <h4>Agroindustria</h4>
+              <p>Viñas y fundos en zonas de Colchagua, Maule y Biobío usan LiteBeam para conectar bodegas, oficinas administrativas y packing que pueden estar a varios km de distancia.</p>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">🏕️</span>
+              <h4>Parques nacionales</h4>
+              <p>Conaf y concesionarios de parques nacionales usan estos enlaces para traer conectividad a guardas y centros de visitantes en zonas protegidas del sur.</p>
+            </div>
+          </div>
+          <h4>Competencia y futuro</h4>
+          <p>En 2024, el LiteBeam enfrenta competencia de:</p>
+          <ul>
+            <li><strong>Cambium Networks PMP450:</strong> Más costoso pero con mejor gestión de interferencias, adoptado por WISPs que crecen</li>
+            <li><strong>MikroTik LHG 5ac:</strong> Alternativa más económica con rendimiento similar para distancias cortas</li>
+            <li><strong>Starlink:</strong> La mayor amenaza estratégica — pero su latencia (20–50ms) vs LiteBeam (1–5ms) aún hace preferibles los enlaces fijos para aplicaciones críticas</li>
+          </ul>
+        </div>`
+      }
+    }
+  }
+];
+
+/* ══ RENDER GRID ══ */
+function renderGrid(filtro) {
+  const data = filtro === 'all' ? antenas : antenas.filter(a => a.tagClass === filtro);
+  document.getElementById('grid').innerHTML = data.map(a=>`
+    <div class="card" data-id="${a.id}" data-tag="${a.tagClass}">
+      <div class="card-img-wrap">
+        <img class="card-img" src="${a.img}" alt="${a.title}"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy">
+        <div class="card-img-placeholder"><i class="ti ti-antenna" aria-hidden="true"></i></div>
+        <div class="card-img-overlay"></div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag ${a.tagClass}">${a.tag}</span>
+        <p class="card-title">${a.title}</p>
+        <p class="card-sub">${a.subtitle}</p>
+        <div class="card-actions">
+          <button class="card-btn btn-specs" onclick="openModal(${a.id})">
+            <i class="ti ti-list-details"></i> Especificaciones
+          </button>
+          <button class="card-btn btn-detail" onclick="openDetail(${a.id})">
+            <i class="ti ti-book-2"></i> Conocer más
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  /* Animación de entrada escalonada */
+  document.querySelectorAll('.card').forEach((card, i) => {
+    setTimeout(() => card.classList.add('visible'), i * 80);
+  });
+}
+
+/* ══ MODAL SPECS ══ */
+function openModal(id){
+  const a = antenas.find(x=>x.id===id);
+  if(!a) return;
+  document.getElementById('m-title').textContent = a.title + ' — ' + a.subtitle;
+  const img = document.getElementById('m-img');
+  if(a.img){ img.src=a.img; img.alt=a.title; img.style.display='block'; }
+  else { img.style.display='none'; }
+  const tag = document.getElementById('m-tag');
+  tag.textContent = a.tag; tag.className = 'modal-tag ' + a.tagClass;
+  document.getElementById('m-desc').textContent = a.desc;
+  document.getElementById('m-specs').innerHTML = a.specs.map(s=>`
+    <div class="spec-row">
+      <span class="spec-label">${s.label}</span>
+      <span class="spec-value">${s.value}</span>
+    </div>`).join('');
+  document.getElementById('overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModalDirect(){
+  document.getElementById('overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function closeModal(e){
+  if(e.target===document.getElementById('overlay')) closeModalDirect();
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModalDirect(); });
+
+/* ══ PANEL DETALLE ══ */
+let openDetailId = null;
+
+function openDetail(id) {
+  const a = antenas.find(x => x.id === id);
+  if (!a) return;
+
+  const container = document.getElementById('detailContainer');
+
+  /* Cierra el anterior si estaba abierto */
+  if (openDetailId === id) {
+    closeDetail(id);
+    return;
+  }
+  if (openDetailId !== null) {
+    const prev = document.getElementById(`detail-${openDetailId}`);
+    if (prev) prev.remove();
+  }
+  openDetailId = id;
+
+  /* Construir las tabs de detalle */
+  const tabKeys = Object.keys(a.detail);
+  const tabsHTML = tabKeys.map((k, i) => `
+    <button class="detail-tab ${i === 0 ? 'active' : ''}" onclick="switchTab(${id}, '${k}', this)">
+      ${a.detail[k].titulo}
+    </button>
+  `).join('');
+
+  const panesHTML = tabKeys.map((k, i) => `
+    <div class="tab-pane ${i === 0 ? 'active' : ''}" id="pane-${id}-${k}">
+      ${a.detail[k].contenido}
+    </div>
+  `).join('');
+
+  const panel = document.createElement('div');
+  panel.className = 'detail-panel open';
+  panel.id = `detail-${id}`;
+  panel.innerHTML = `
+    <div class="detail-hero">
+      <img src="${a.img}" alt="${a.title}">
+      <div class="detail-hero-overlay">
+        <div class="detail-hero-text">
+          <span class="card-tag ${a.tagClass}" style="margin-bottom:12px">${a.tag}</span>
+          <h3>${a.title}</h3>
+          <p>${a.subtitle} — Guía completa</p>
+        </div>
+      </div>
+      <button class="detail-close-btn" onclick="closeDetail(${id})" title="Cerrar">
+        <i class="ti ti-x"></i>
+      </button>
+    </div>
+    <div class="detail-tabs">${tabsHTML}</div>
+    <div class="detail-content">${panesHTML}</div>
+  `;
+
+  container.appendChild(panel);
+
+  /* Scroll suave hasta el panel */
+  setTimeout(() => {
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+function closeDetail(id) {
+  const panel = document.getElementById(`detail-${id}`);
+  if (panel) {
+    panel.style.animation = 'none';
+    panel.style.opacity = '0';
+    panel.style.transform = 'translateY(16px)';
+    panel.style.transition = 'all 0.3s ease';
+    setTimeout(() => panel.remove(), 300);
+  }
+  openDetailId = null;
+}
+
+function switchTab(id, key, btn) {
+  /* Desactivar todas las tabs y panes de este panel */
+  const panel = document.getElementById(`detail-${id}`);
+  panel.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
+  panel.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+
+  /* Activar la tab y pane seleccionados */
+  btn.classList.add('active');
+  const pane = document.getElementById(`pane-${id}-${key}`);
+  if (pane) pane.classList.add('active');
+}
+
+/* ══ FILTROS ══ */
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    /* Cerrar detalle abierto al filtrar */
+    if (openDetailId !== null) closeDetail(openDetailId);
+    renderGrid(btn.dataset.filter);
+  });
+});
+
+/* ══ STARS ══ */
+(function() {
+  const bg = document.getElementById('starsBg');
+  for (let i = 0; i < 80; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left   = Math.random() * 100 + '%';
+    s.style.top    = Math.random() * 100 + '%';
+    s.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+    s.style.setProperty('--delay', (-Math.random() * 4) + 's');
+    s.style.width = s.style.height = (Math.random() > 0.7 ? 3 : 2) + 'px';
+    bg.appendChild(s);
+  }
+})();
+
+/* ══ CANVAS ONDAS ══ */
+const canvas = document.getElementById('waveCanvas');
+const ctx    = canvas.getContext('2d');
+let W, H, cx, cy;
+
+function resize(){
+  W = canvas.width  = canvas.offsetWidth;
+  H = canvas.height = canvas.offsetHeight;
+  cx = W / 2; cy = H * 0.38;
+}
+window.addEventListener('resize', resize);
+
+const rings = [];
+const RING_COLORS = [
+  'rgba(56,189,248,',
+  'rgba(99,102,241,',
+  'rgba(20,184,166,',
+  'rgba(139,92,246,',
+];
+
+function spawnRing(){
+  rings.push({
+    r: 10,
+    maxR: Math.max(W, H) * 0.7,
+    colorBase: RING_COLORS[Math.floor(Math.random()*RING_COLORS.length)],
+    speed: 1.0 + Math.random() * 1.4,
+    lineWidth: 1 + Math.random() * 2,
+  });
+}
+
+/* Partículas mejoradas */
+const particles = [];
+for(let i = 0; i < 60; i++){
+  particles.push({
+    x: Math.random(), y: Math.random(),
+    r: 0.5 + Math.random() * 2,
+    speed: 0.0001 + Math.random() * 0.00025,
+    alpha: 0.15 + Math.random() * 0.4,
+    drift: (Math.random()-0.5)*0.00015,
+    hue: Math.random() > 0.5 ? '56,189,248' : '99,102,241',
+  });
+}
+
+/* Líneas conectoras entre partículas cercanas */
+function drawConnectors(){
+  const pts = particles.map(p => ({x: p.x*W, y: p.y*H, a: p.alpha}));
+  for(let i = 0; i < pts.length; i++){
+    for(let j = i+1; j < pts.length; j++){
+      const dx = pts[i].x - pts[j].x;
+      const dy = pts[i].y - pts[j].y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if(dist < 80){
+        const alpha = (1 - dist/80) * 0.08;
+        ctx.beginPath();
+        ctx.moveTo(pts[i].x, pts[i].y);
+        ctx.lineTo(pts[j].x, pts[j].y);
+        ctx.strokeStyle = `rgba(56,189,248,${alpha})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+let lastSpawn = 0;
+const SPAWN_INTERVAL = 850;
+
+function draw(ts){
+  ctx.clearRect(0, 0, W, H);
+
+  /* Partículas + conectores */
+  particles.forEach(p=>{
+    p.y -= p.speed;
+    p.x += p.drift;
+    if(p.y < 0) { p.y=1; p.x=Math.random(); }
+    ctx.beginPath();
+    ctx.arc(p.x*W, p.y*H, p.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${p.hue},${p.alpha})`;
+    ctx.fill();
+  });
+  drawConnectors();
+
+  /* Spawn */
+  if(ts - lastSpawn > SPAWN_INTERVAL){ spawnRing(); lastSpawn=ts; }
+
+  /* Anillos */
+  for(let i = rings.length-1; i>=0; i--){
+    const ring = rings[i];
+    ring.r += ring.speed;
+    const progress = ring.r / ring.maxR;
+    const alpha = (1 - progress) * 0.5;
+    if(alpha <= 0 || ring.r > ring.maxR){ rings.splice(i,1); continue; }
+    ctx.beginPath();
+    ctx.arc(cx, cy, ring.r, 0, Math.PI*2);
+    ctx.strokeStyle = ring.colorBase + alpha + ')';
+    ctx.lineWidth = ring.lineWidth * (1 - progress * 0.5);
+    ctx.stroke();
+  }
+
+  requestAnimationFrame(draw);
+}
+
+/* ══ CONTADOR ANIMADO ══ */
+function animateCounters(){
+  document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    let current = 0;
+    const step = Math.ceil(target / 30);
+    const interval = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = current;
+      if(current >= target) clearInterval(interval);
+    }, 50);
+  });
+}
+
+/* ══ INTERSECTION OBSERVER ══ */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+/* ══ INIT ══ */
+resize();
+requestAnimationFrame(draw);
+renderGrid('all');
+setTimeout(animateCounters, 400);
